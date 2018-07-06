@@ -1,1 +1,1 @@
-Working to learn Javascript deeply through doing
+I'm working to learn Javascript deeply through doing.
