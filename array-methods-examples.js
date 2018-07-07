@@ -63,6 +63,10 @@ console.log(result);
 /* Average age difference between mothers and children, i.e., age of mother when
 child was born. */
 
+/*
+From Eloquent JavaScript, 5.2
+*/
+
 var ancestry = [
   {"name": "Carolus Haverbeke", "sex": "m", "born": 1832, "died": 1905, "father": "Carel Haverbeke", "mother": "Maria van Brussel"},
   {"name": "Emma de Milliano", "sex": "f", "born": 1876, "died": 1956, "father": "Petrus de Milliano", "mother": "Sophia van Damme"},
