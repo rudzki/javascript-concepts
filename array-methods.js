@@ -1,4 +1,7 @@
 /* custom implementations of array methods */
+
+/* ========================================================================== */
+
 /* map, reduce, filter */
 
 /* ========================================================================== */
@@ -54,3 +57,34 @@ var result_OverOneHundred = filter(array,
 );
 
 console.log(result_OverOneHundred);
+
+/* ========================================================================== */
+
+/* Every and Some array methods as functions */
+
+/* ========================================================================== */
+
+function every(array, predicateFunc) {
+    for (var i = 0; i < array.length; i++) {
+        if (!predicateFunc(array[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+console.log(every([NaN, NaN, NaN], isNaN));
+console.log(every([NaN, NaN, 1], isNaN));
+
+
+function some(array, predicateFunc) {
+    for (var i = 0; i < array.length; i++) {
+        if (predicateFunc(array[i])) {
+            return true;
+        }
+    }
+    return false;
+}
+
+console.log(some([NaN, 1, 2], isNaN));
+console.log(some([1, 2, 3], isNaN));
