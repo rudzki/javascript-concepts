@@ -128,4 +128,51 @@ var ageGivenBirth = ancestry.filter(
         return person.born - ancestryByName[person.mother].born;
 });
 
-console.log(avg(ageGivenBirth));
+console.log('average age when giving birth: ' + avg(ageGivenBirth));
+
+/* ========================================================================== */
+
+/* Compute and output the average age of the people
+in the ancestry data set per century.
+
+A person is assigned to a century by taking their year of death,
+dividing it by 100, and rounding it up, as in Math.ceil(person.died / 100).. */
+
+/*
+From Eloquent JavaScript, 5.3
+*/
+
+function groupBy(array, groupingFunc) {
+    var groups = {};
+    array.forEach(
+        function(item) {
+            var groupName = groupingFunc(item);
+            if (!(groupName in groups)) {
+                groups[groupName] = [item];
+            } else {
+                groups[groupName].push(item);
+            }
+    });
+
+    //console.log(groups);
+    return groups;
+}
+
+var groupedByCentury = groupBy(ancestry,
+    function(person) {
+        return Math.ceil(person.died / 100);
+    }
+);
+
+for (var century in groupedByCentury) {
+    var agesByCentury = groupedByCentury[century].map(
+        function(person) {
+            return person.died - person.born;
+        }
+    );
+    console.log(
+        century + "th century - "
+        + avg(agesByCentury)
+        + ' y.o. at death (avg)'
+    );
+}
