@@ -67,3 +67,29 @@ console.log('Vector C + Vector D:', vectorC.plus(vectorD));
 console.log('Vector C - Vector D:', vectorC.minus(vectorD));
 console.log('Vector C distance to origin:', vectorC.length);
 console.log('Vector D distance to origin:', vectorD.length);
+
+
+/* calling methods on objects */
+
+let tomato = {
+    color: 'red',
+    throw: function(speed) {
+        console.log('Thrown', speed);
+    }
+};
+
+tomato.throw('fast');  // => Thrown fast
+
+
+/* calling functions on particular objects as methods
+by specifying `this` value */
+
+function say(word) {
+    console.log(this.name, "says", word);
+}
+
+let person = {
+    name: 'Chris'
+}
+
+say.call(person, "Howdy");  // => Chris says Howdy
