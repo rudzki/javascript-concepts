@@ -3,14 +3,6 @@ function Vector(x, y) {
     this.y = y;
 }
 
-
-// this works and is simpler. why shouldn't i use it?
-// Vector.prototype.length = function() {
-//     return Math.sqrt(this.x ** 2 + this.y ** 2);
-// };
-// requires method call, like vectorA.length(), below.
-
-
 Object.defineProperty(Vector.prototype, "length",
     { get: function() { return Math.sqrt(this.x ** 2 + this.y ** 2); }
 });
@@ -24,12 +16,54 @@ Vector.prototype.minus = function(otherVector) {
 };
 
 var vectorA = new Vector(1,2);
-console.log('Vector A:', vectorA);
-
 var vectorB = new Vector(2,3);
+
+console.log('Vector A:', vectorA);
 console.log('Vector B:', vectorB);
 
 console.log('Vector A + Vector B:', vectorA.plus(vectorB));
 console.log('Vector A - Vector B:', vectorA.minus(vectorB));
 console.log('Vector A distance to origin:', vectorA.length);
 console.log('Vector B distance to origin:', vectorB.length);
+
+
+
+
+/*
+Much more intuitive class syntax added in ES6
+*/
+
+class VectorVerTwo {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    get length() {
+        return Math.sqrt(this.x ** 2 + this.y ** 2);
+    }
+
+    minus(otherVector) {
+        return new VectorVerTwo(this.x - otherVector.x, this.y - otherVector.y);
+    }
+
+    plus(otherVector) {
+        return new VectorVerTwo(this.x + otherVector.y, this.y + otherVector.y);
+    }
+}
+
+console.log('\n========================================================');
+console.log('=================== w/ ES 6 syntax =====================');
+console.log('========================================================\n');
+
+
+let vectorC = new VectorVerTwo(1,2);
+let vectorD = new VectorVerTwo(2,3);
+
+console.log('Vector C:', vectorC);
+console.log('Vector D:', vectorD);
+
+console.log('Vector C + Vector D:', vectorC.plus(vectorD));
+console.log('Vector C - Vector D:', vectorC.minus(vectorD));
+console.log('Vector C distance to origin:', vectorC.length);
+console.log('Vector D distance to origin:', vectorD.length);
