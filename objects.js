@@ -1,3 +1,30 @@
+/* calling methods on objects */
+
+let tomato = {
+    color: 'red',
+    throw: function(speed) {
+        console.log('Thrown', speed);
+    }
+};
+
+tomato.throw('fast');  // => Thrown fast
+
+
+/* calling functions on particular objects as methods
+by specifying `this` value */
+
+function say(word) {
+    console.log(this.name, "says", word);
+}
+
+let person = {
+    name: 'Chris'
+}
+
+say.call(person, "Howdy");  // => Chris says Howdy
+
+/* Constructors and prototypes */
+
 function Vector(x, y) {
     this.x = x;
     this.y = y;
@@ -25,9 +52,6 @@ console.log('Vector A + Vector B:', vectorA.plus(vectorB));
 console.log('Vector A - Vector B:', vectorA.minus(vectorB));
 console.log('Vector A distance to origin:', vectorA.length);
 console.log('Vector B distance to origin:', vectorB.length);
-
-
-
 
 /*
 Much more intuitive class syntax added in ES6
@@ -67,29 +91,3 @@ console.log('Vector C + Vector D:', vectorC.plus(vectorD));
 console.log('Vector C - Vector D:', vectorC.minus(vectorD));
 console.log('Vector C distance to origin:', vectorC.length);
 console.log('Vector D distance to origin:', vectorD.length);
-
-
-/* calling methods on objects */
-
-let tomato = {
-    color: 'red',
-    throw: function(speed) {
-        console.log('Thrown', speed);
-    }
-};
-
-tomato.throw('fast');  // => Thrown fast
-
-
-/* calling functions on particular objects as methods
-by specifying `this` value */
-
-function say(word) {
-    console.log(this.name, "says", word);
-}
-
-let person = {
-    name: 'Chris'
-}
-
-say.call(person, "Howdy");  // => Chris says Howdy
