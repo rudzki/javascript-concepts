@@ -1,15 +1,17 @@
-/*
-calling a fxn, and some simple functions
-*/
+/* let vs var */
 
-// alert('Hi');
-console.log('Hi'); // print to console
+// let limits variables in scope to block/statement/expression
+// var defines variable globally, or local to a function
 
-// produces confirmation dialog
-// confirm('That ok?');
+var a = 100;
+let b = 200;
 
-// prompt: ask open question
-// prompt('How are you?', 'I am good - default text');
+if (true) {
+    var a = 25;
+    let b = 50;
+}
+
+console.log(a, b); // => 25 200
 
 
 /*
