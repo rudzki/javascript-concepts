@@ -91,3 +91,24 @@ console.log('Vector C + Vector D:', vectorC.plus(vectorD));
 console.log('Vector C - Vector D:', vectorC.minus(vectorD));
 console.log('Vector C distance to origin:', vectorC.length);
 console.log('Vector D distance to origin:', vectorD.length);
+
+
+/* Prototypal inheritance */
+
+/* An array object inherits from the Array prototype,
+which in turn inherits from the Object prototype */
+
+console.log(
+        Object.getPrototypeOf([1,2,3]) === Array.prototype,
+        Object.getPrototypeOf(Array.prototype) === Object.prototype
+);
+
+/* A function object inherits from the Function prototype,
+which in turn inherits from the Object prototype */
+
+let func = x => x;
+
+console.log(
+    Object.getPrototypeOf(func) === Function.prototype,
+    Object.getPrototypeOf(Function.prototype) === Object.prototype
+);
