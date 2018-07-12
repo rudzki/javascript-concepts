@@ -11,7 +11,7 @@ class Bean {
 
 }
 let smallRedBean = new Bean('red', 'small');
-smallRedBean.eat(); // => You've consumed a small, red bean.
+// smallRedBean.eat(); // => You've consumed a small, red bean.
 
 
 /* Build a data structure called Group to implement Set-like characteristics:
@@ -71,7 +71,7 @@ console.log(someGroup);
 /* does someGroup contain the value 1? */
 console.log(someGroup.has(1));
 
-/* create a Group type object from the array object [1,2,3,3] */
-let particularGroup = Group.from([1,2,3,3]);
+/* create a Group type object from the array object [1,2,3,3,3,3] */
+let particularGroup = Group.from([1,2,3,3,3,3]);
 particularGroup.add(4); // add four to Group object named particularGroup
-console.log(particularGroup);
+console.log(particularGroup); // => 1,2,3,4
