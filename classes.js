@@ -1,17 +1,38 @@
 /* reviewing from objects.js */
 
-class Bean {
+class Shirt {
     constructor (color, size) {
         this.color = color;
         this.size = size;
     }
-    eat() {
-        console.log("You've consumed a", this.size + ', ' + this.color, 'bean.');
+    wear() {
+        return `You're wearing a size ${this.size} shirt that is ${this.color}.`;
     }
 
 }
-let smallRedBean = new Bean('red', 'small');
-// smallRedBean.eat(); // => You've consumed a small, red bean.
+let smallRedShirt = new Shirt('red', 'small');
+console.log(smallRedShirt.wear()); // => You've consumed a small, red bean.
+
+
+/* SUBCLASSES */
+
+class dressShirt extends Shirt {
+    constructor (color, size, collarType) {
+        super(color, size); // <= passes in params from Shirt class
+        this.collarType = collarType;
+    }
+}
+
+let mediumBlueMandarinShirt = new dressShirt("blue", "medium", "mandarin");
+console.log(mediumBlueMandarinShirt); // => dressShirt { color: 'blue', size: 'medium', collarType: 'mandarin' }
+console.log(mediumBlueMandarinShirt.wear()); // => You're wearing a size medium shirt that is blue.
+
+
+
+
+
+
+
 
 
 /* Build a data structure called Group to implement Set-like characteristics:
