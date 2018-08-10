@@ -128,3 +128,43 @@ console.log('Vector C + Vector D:', vectorC.plus(vectorD));
 console.log('Vector C - Vector D:', vectorC.minus(vectorD));
 console.log('Vector C distance to origin:', vectorC.length);
 console.log('Vector D distance to origin:', vectorD.length);
+
+
+/*
+Testing equality between objects
+*/
+
+let objA = {
+  color: 'blue',
+  size: 'medium',
+  height: 'tall'
+};
+
+let objB = {
+  color: 'blue',
+  size: 'medium',
+  height: 'tall'
+};
+
+// Different objects, even if containing the same properties, are not identical.
+console.log( objA == objB );
+console.log( objA === objB );
+
+// Check values property by property for deep comparison between objects
+function deepCompare(objectA, objectB) {
+  if (Object.keys(objectA).length !== Object.keys(objectB).length) return false;
+  for (let prop of Object.keys(objectA)) {
+    if (objectA[prop] !== objectB[prop])
+      return false;
+  }
+  return true;
+}
+console.log(deepCompare(objA, objB));
+
+// Alternative deep comparison; comparing JSON strings
+
+function altDeepCompare(objectA, objectB) {
+  return JSON.stringify(objectA) === JSON.stringify(objectB);
+}
+
+console.log(altDeepCompare(objA, objB));
